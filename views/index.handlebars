@@ -1,8 +1,9 @@
-<img src="#" alt="burger">
+<img src="/assets/images/burger-icon.png" alt="burger">
 
 <h1>Burger Time!</h1>
 
 <div id="not-eaten-list">
+    <h2>These burgers are ready to be eaten...</h2>
 	<ol>
 		{{#each burgers}}
     		{{#unless this.devoured}}
@@ -10,7 +11,7 @@
         			{{this.burger_name}}
         			<form action="/{{this.id}}?_method=PUT" method="POST">
         				<input type="hidden" name="devoured" value="true">
-						<button type="submit">Eat da burger!</button>
+						<button type="submit" class="eat-button">Eat da burger!</button>
         			</form>
         		</li>
         	{{/unless}}
@@ -19,6 +20,7 @@
 </div>
 
 <div id="eaten-list">
+    <h2>These burgers have already been eaten...</h2>
 	<ol>
 		{{#each burgers}}
     		{{#if this.devoured}}
@@ -30,8 +32,10 @@
 	</ol>
 </div>
 
-<form id="add-burger-form" action="/" method="POST">
-	<input type="text" id="burger-name" name="name">
-	<button type="submit">Submit</button>
-</form>
-<p>Enter a burger you would like to eat and click the "Submit" button.</p>
+<div id="form-area">
+    <form id="add-burger-form" action="/" method="POST">
+        <input type="text" id="burger-name" name="name">
+        <button type="submit" id="burger-submit">Submit</button>
+    </form>
+    <p>Enter a burger you would like to eat and click the "Submit" button.</p>  
+</div>
